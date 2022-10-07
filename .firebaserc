@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "movie-library-demo": {
+      "hosting": {
+        "movie-library": [
+          "movie-library-demo"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "movie-library-demo"
+  }
+}
