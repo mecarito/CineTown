@@ -1,7 +1,14 @@
+import { firebase } from "../Configurations";
+
 export const environment = {
   firebase: {
-    projectId: process.env['projectId'],
-    appId: process.env['appId'],
+    projectId: firebase.projectId,
+    appId: firebase.appId,
+    storageBucket: firebase.storageBucket,
+    apiKey: firebase.apiKey,
+    authDomain: firebase.authDomain,
+    messagingSenderId: firebase.messagingSenderId,
+    measurementId: firebase.measurementId
   },
   production: true,
 };

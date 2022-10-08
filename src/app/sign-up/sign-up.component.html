@@ -22,17 +22,20 @@
         <button mat-flat-button class="create-account-btn">
           Create account
         </button>
-        <button class="signup-google-btn">
-          <img
-            src="../../assets/google.svg"
-            alt="sign up with google"
-            width="30px"
-            height="30px"
-          />
-          <p style="margin-top: 10px">Sign up with google</p>
-        </button>
       </div>
-      <p class="gray-color">Already have an account? <a class="login-text" routerLink="login">Login</a></p>
     </form>
+    <button class="signup-google-btn" (click)="signUpWithGoogle()">
+      <img
+        src="../../assets/google.svg"
+        alt="sign up with google"
+        width="30px"
+        height="30px"
+      />
+      <p style="margin-top: 10px">Sign up with google</p>
+    </button>
+    <p class="gray-color">
+      Already have an account?
+      <a class="login-text" routerLink="login">Login</a>
+    </p>
   </div>
 </div>
