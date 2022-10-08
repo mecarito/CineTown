@@ -1,0 +1,67 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: 100vh;
+}
+
+.image-container {
+  background-image: url("../../assets/avatar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.form-container {
+  background-color: #191919;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.signUpForm {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+h1 {
+  color: white;
+  font-size: xx-large;
+}
+h3 {
+    font-size: large;
+}
+.create-account-btn {
+  background-color: white;
+  color: black;
+  font-size: x-large;
+  padding: 5px 70px;
+  border-radius: 10px;
+}
+.signup-google-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 10px;
+  background-color: transparent;
+  margin-top: 30px;
+  color: white;
+  padding: 7px 30px;
+  font-size: large;
+  border: solid 1px rgb(107 114 128);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 40px;
+}
+.gray-color {
+  color: rgb(107 114 128);
+}
+.login-text{
+    color: white;
+    margin-left: 3px;
+}

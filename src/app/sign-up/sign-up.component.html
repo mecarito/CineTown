@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="image-container"></div>
+  <div class="form-container">
+    <h1>Create an account</h1>
+    <h3 class="gray-color">Let's get started with your 30 days free trial</h3>
+    <form>
+      <div class="signUpForm">
+        <mat-form-field appearance="standard">
+          <mat-label>Name</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Email</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" />
+        </mat-form-field>
+      </div>
+      <div class="button-group">
+        <button mat-flat-button class="create-account-btn">
+          Create account
+        </button>
+        <button class="signup-google-btn">
+          <img
+            src="../../assets/google.svg"
+            alt="sign up with google"
+            width="30px"
+            height="30px"
+          />
+          <p style="margin-top: 10px">Sign up with google</p>
+        </button>
+      </div>
+      <p class="gray-color">Already have an account? <a class="login-text" routerLink="login">Login</a></p>
+    </form>
+  </div>
+</div>
