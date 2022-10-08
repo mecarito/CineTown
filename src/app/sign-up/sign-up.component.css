@@ -64,4 +64,5 @@ h3 {
 .login-text{
     color: white;
     margin-left: 3px;
+    text-decoration: none;
 }
