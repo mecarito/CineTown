@@ -1,0 +1,53 @@
+.dashboard-container {
+  height: 100vh;
+  background-color: #191919;
+}
+.sidebar {
+  background-color: #212121;
+  width: 15%;
+  border-top-right-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+.product-name {
+  color: #3dd2cc;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: xx-large;
+}
+nav {
+  margin: 50px 0;
+}
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  font-size: large;
+  cursor: pointer;
+  padding: 20px 30px;
+  color: rgb(107 114 128);
+}
+ul {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  gap: 20px;
+}
+li:hover {
+  background-color: #2c6865;
+  color: white;
+  border-right: solid 5px #3dd2cc;
+}
+.logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(107 114 128);
+  padding: 20px 30px;
+  cursor: pointer;
+  gap: 10px;
+  text-decoration: none;
+  margin-top: 30px;
+}

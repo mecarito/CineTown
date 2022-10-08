@@ -14,9 +14,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
-  declarations: [AppComponent, SignUpComponent, LoginComponent],
+  declarations: [AppComponent, SignUpComponent, LoginComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],

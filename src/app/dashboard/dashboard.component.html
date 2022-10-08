@@ -1,0 +1,18 @@
+<mat-drawer-container class="dashboard-container">
+  <mat-drawer mode="side" opened class="sidebar">
+    <h1 class="product-name">MOVIBES</h1>
+    <nav >
+      <ul>
+        <li *ngFor="let module of Modules">
+          <span class="material-symbols-outlined">{{ module.icon }}</span>
+          <span>{{ module.name }}</span>
+        </li>
+      </ul>
+    </nav>
+    <a class="logout" routerLink="">
+        <span class="material-symbols-outlined">logout</span>
+        <span>Log Out</span>
+    </a>
+  </mat-drawer>
+  <mat-drawer-content>Main content</mat-drawer-content>
+</mat-drawer-container>
