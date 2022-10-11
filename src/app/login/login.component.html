@@ -16,15 +16,15 @@
       <span style="margin: 0 20px">Or</span>
       <div class="divider"></div>
     </div>
-    <form>
+    <div>
       <div class="loginForm">
         <mat-form-field appearance="standard">
           <mat-label>Email</mat-label>
-          <input matInput />
+          <input matInput  [formControl]="email"/>
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Password</mat-label>
-          <input matInput type="password" />
+          <input matInput type="password" [formControl]="password"/>
         </mat-form-field>
       </div>
       <section>
@@ -34,14 +34,14 @@
         </div>
         <a class="forgot-password">Forgot password</a>
       </section>
-      <button mat-flat-button class="login-btn" (click)="loginWithGoogle()">
+      <button mat-flat-button class="login-btn" (click)="loginWithEmailAndPassword()">
         Log in
       </button>
       <p class="gray-color">
         Don't have an account?
         <a class="signUp-text" routerLink="">Sign up for free</a>
       </p>
-    </form>
+    </div>
   </div>
   <div class="image-container"></div>
 </div>
