@@ -3,7 +3,7 @@
   <div class="form-container">
     <h1>Create an account</h1>
     <h3 class="gray-color">Let's get started with your 30 days free trial</h3>
-    <form>
+    <div>
       <div class="signUpForm">
         <mat-form-field appearance="standard">
           <mat-label>Name</mat-label>
@@ -11,19 +11,21 @@
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Email</mat-label>
-          <input matInput />
+          <input matInput [formControl]="email" />
         </mat-form-field>
         <mat-form-field appearance="standard">
           <mat-label>Password</mat-label>
-          <input matInput type="password" />
+          <input matInput type="password" [formControl]="password" />
         </mat-form-field>
       </div>
-      <div class="button-group">
-        <button mat-flat-button class="create-account-btn">
-          Create account
-        </button>
-      </div>
-    </form>
+      <button
+        mat-flat-button
+        class="create-account-btn"
+        (click)="singUpWithEmailAndPassword()"
+      >
+        Create account
+      </button>
+    </div>
     <button class="signup-google-btn" (click)="signUpWithGoogle()">
       <img
         src="../../assets/google.svg"

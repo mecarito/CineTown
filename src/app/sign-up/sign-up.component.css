@@ -34,8 +34,9 @@ h3 {
   background-color: white;
   color: black;
   font-size: x-large;
-  padding: 5px 70px;
+  padding: 7px 70px;
   border-radius: 10px;
+  margin-top: 20px;
 }
 .signup-google-btn {
   display: flex;
@@ -47,7 +48,7 @@ h3 {
   background-color: transparent;
   margin: 30px 0;
   color: white;
-  padding: 7px 30px;
+  padding: 7px 40px;
   font-size: large;
   border: solid 1px rgb(107 114 128);
 }

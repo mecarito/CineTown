@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../services/movies.services';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -14,11 +16,15 @@ export class DashboardComponent implements OnInit {
     { name: 'Upcomming', icon: 'calendar_month' },
   ];
 
-  constructor(public movieService: MovieService) {}
+  constructor(public movieService: MovieService, public router: Router) {}
 
   ngOnInit(): void {}
 
   getUpcomming(){
     this.movieService.getUpcommingMovies().subscribe( movies => console.log(movies))
+  }
+
+  logout(){
+     this.router.navigate([''])
   }
 }

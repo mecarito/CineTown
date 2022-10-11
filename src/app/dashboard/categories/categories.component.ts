@@ -16,9 +16,7 @@ export class CategoriesComponent implements OnInit {
     this.movieServies.getMoviesCategories().subscribe((categories) => {
       if (categories) {
        this.categories = categories
-      }
-      
-      
+      }      
     });
   }
 }

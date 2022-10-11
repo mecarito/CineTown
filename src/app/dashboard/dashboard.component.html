@@ -9,7 +9,7 @@
         </li>
       </ul>
     </nav>
-    <a class="logout" routerLink="">
+    <a class="logout" (click)="logout()">
       <span class="material-symbols-outlined">logout</span>
       <span>Log Out</span>
     </a>
@@ -17,8 +17,10 @@
   <mat-drawer-content class="drawer-content">
     <app-dashboard-header></app-dashboard-header>
     <div class="dashboard-content">
-      <div class="cards">
-        
+      <div class="media">
+        <app-trending-movies></app-trending-movies>
+        <app-upcomming-moves></app-upcomming-moves>
+        <app-tvshows></app-tvshows>
       </div>
       <div class="categories">
         <app-dashboard-categories></app-dashboard-categories>

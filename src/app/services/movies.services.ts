@@ -13,7 +13,16 @@ export class MovieService {
     return this.http.get<Movie>(`${this.baseUrl}movies/upcomming`);
   }
 
+  getTrendingMovies() {
+    return this.http.get<Movie>(`${this.baseUrl}movies/trending/movies`);
+  }
+
+  getTvshows() {
+    return this.http.get<Categories>(`${this.baseUrl}tv/popular`);
+  }
+
   getMoviesCategories() {
     return this.http.get<Categories>(`${this.baseUrl}movies/categories`);
   }
+ 
 }

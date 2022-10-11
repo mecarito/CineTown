@@ -1,0 +1,29 @@
+.rating {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+  background-color: #2e343f;
+  width: 3vw;
+  height: 2vh;
+  padding: 5px 0;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.container {
+  width: 10vw;
+  height: 30vh;
+  position: relative;
+  border-radius: 20px;
+}
+img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 10vw;
+  height: 30vh;
+  border-radius: 20px;
+}

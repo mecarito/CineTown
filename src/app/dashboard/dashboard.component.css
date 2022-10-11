@@ -57,14 +57,16 @@ li:hover {
 }
 
 .categories {
-  grid-column: span 2 / span 2;
+  grid-column: span 3 / span 3;
 }
 
-.cards {
-  grid-column: span 10 / span 10;
+.media {
+  grid-column: span 9 / span 9;
+  padding: 20px 0;
 }
 
 .dashboard-content {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 30px;
 }
