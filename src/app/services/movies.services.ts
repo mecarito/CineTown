@@ -12,4 +12,8 @@ export class MovieService {
   getUpcommingMovies() {
     return this.http.get<Movie>(`${this.baseUrl}movies/upcomming`);
   }
+
+  getMoviesCategories() {
+    return this.http.get<Categories>(`${this.baseUrl}movies/categories`);
+  }
 }

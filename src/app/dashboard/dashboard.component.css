@@ -51,3 +51,20 @@ li:hover {
   text-decoration: none;
   margin-top: 30px;
 }
+
+.drawer-content {
+  padding: 20px 40px;
+}
+
+.categories {
+  grid-column: span 2 / span 2;
+}
+
+.cards {
+  grid-column: span 10 / span 10;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
