@@ -11,4 +11,5 @@ export const environment = {
     measurementId: firebase.measurementId
   },
   production: true,
+  baseUrl: 'https://api.themoviedb.org/3/'
 };

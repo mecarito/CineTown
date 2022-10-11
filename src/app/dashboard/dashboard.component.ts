@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../services/movies.services';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,11 @@ export class DashboardComponent implements OnInit {
     { name: 'Upcomming', icon: 'calendar_month' },
   ];
 
-  constructor() {}
+  constructor(public movieService: MovieService) {}
 
   ngOnInit(): void {}
+
+  getUpcomming(){
+    this.movieService.getUpcommingMovies().subscribe( movies => console.log(movies))
+  }
 }

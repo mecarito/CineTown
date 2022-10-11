@@ -2,7 +2,7 @@
   <div class="form-container">
     <h1>Welcome back</h1>
     <h3 class="gray-color">Welcome back! Please enter your details</h3>
-    <button class="login-google-btn">
+    <button class="login-google-btn" (click)="loginWithGoogle()">
       <img
         src="../../assets/google.svg"
         alt="sign up with google"
@@ -34,14 +34,14 @@
         </div>
         <a class="forgot-password">Forgot password</a>
       </section>
+      <button mat-flat-button class="login-btn" (click)="loginWithGoogle()">
+        Log in
+      </button>
+      <p class="gray-color">
+        Don't have an account?
+        <a class="signUp-text" routerLink="">Sign up for free</a>
+      </p>
     </form>
-    <button mat-flat-button class="login-btn" (click)="loginWithGoogle()">
-      Log in
-    </button>
-    <p class="gray-color">
-      Don't have an account?
-      <a class="signUp-text" routerLink="">Sign up for free</a>
-    </p>
   </div>
   <div class="image-container"></div>
 </div>
