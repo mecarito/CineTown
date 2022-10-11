@@ -11,6 +11,6 @@ export const environment = {
     measurementId: firebase.measurementId
   },
   production: true,
-  baseUrl: 'http://139.144.66.105:3000/'
+  baseUrl: 'http://172.105.91.235:3000/'
 
 };
