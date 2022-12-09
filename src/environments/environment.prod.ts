@@ -1,4 +1,4 @@
-import { firebase } from "../Configurations";
+import { firebase } from "../configurations";
 
 export const environment = {
   firebase: {
