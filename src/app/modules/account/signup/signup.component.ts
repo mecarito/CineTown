@@ -5,11 +5,12 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css'],
 })
-export class SignUpComponent implements OnInit {
+export class SignupComponent implements OnInit {
+
   email = new FormControl('');
   password = new FormControl('');
 
@@ -21,8 +22,8 @@ export class SignUpComponent implements OnInit {
     const response = await this.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     );
-    
-    if ((response).operationType === 'signIn') {
+
+    if (response.operationType === 'signIn') {
       this.router.navigate(['dashboard']);
     }
   }
@@ -33,7 +34,7 @@ export class SignUpComponent implements OnInit {
       this.password.value as string
     );
 
-    if ((response).operationType === 'signIn') {
+    if (response.operationType === 'signIn') {
       this.router.navigate(['dashboard']);
     }
   }

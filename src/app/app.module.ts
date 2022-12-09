@@ -5,22 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
-import { MovieService } from './services/movies.services';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { SharedModule } from './modules/shared/shared.module';
+import { AccountModule } from './modules/account/account.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
-  declarations: [AppComponent, SignUpComponent, LoginComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,13 +22,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     DashboardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatSidenavModule,
+    SharedModule,
+    AccountModule,
   ],
-  providers: [MovieService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
