@@ -21,7 +21,10 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {}
 
   getBgImage() {
-    return `url(${this.imageBaseUrl}${this.movie.poster_path})`;
+    if (this.movie) {
+      return `url(${this.imageBaseUrl}${this.movie.poster_path})`;
+    }
+    return `url(${this.imageBaseUrl}${this.tvShow.poster_path})`;
   }
 
   getItemId() {

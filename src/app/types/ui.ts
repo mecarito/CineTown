@@ -4,7 +4,7 @@ export type Icons =
   | 'eyeOff'
   | 'tvShow'
   | 'movie'
-  | 'home'
+  | 'search'
   | 'category'
   | 'logout'
   | 'rating';

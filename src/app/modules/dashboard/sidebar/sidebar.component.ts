@@ -15,9 +15,9 @@ interface Section {
 export class SidebarComponent implements OnInit {
   sections: Section[] = [
     {
-      title: 'Home',
-      link: 'home',
-      iconName: 'home',
+      title: 'Search',
+      link: 'search',
+      iconName: 'search',
     },
     {
       title: 'Movies',

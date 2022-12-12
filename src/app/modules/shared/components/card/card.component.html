@@ -1,7 +1,7 @@
 <div>
   <ng-container *ngIf="variant === 'movie'">
     <div
-      class="rounded-xl cursor-pointer w-52 h-52 "
+      class="rounded-xl cursor-pointer w-52 h-52"
       (click)="getItemId()"
       [ngStyle]="{
         'background-image': getBgImage(),
@@ -9,10 +9,7 @@
         'background-size': 'cover'
       }"
     >
-      
-      <div
-        class="py-2 px-4 h-full flex flex-col justify-between"
-      >
+      <div class="py-2 px-4 h-full flex flex-col justify-between">
         <div
           class="flex flex-row items-center bg-theme-black px-2 py-0.5 space-x-1 w-min rounded-2xl"
         >
@@ -21,15 +18,34 @@
         </div>
         <div class="flex flex-col space-y-1 text-white truncate ...">
           <p class="text-xl font-semibold">{{ movie.original_title }}</p>
-          <p class="text-base">{{ movie.release_date | date : "YYYY" }}</p>
+          <p class="text-base ">{{ movie.release_date | date : "YYYY" }}</p>
         </div>
       </div>
     </div>
   </ng-container>
 
   <ng-container *ngIf="variant === 'tvShow'">
-    <div class="flex flex-col rounded-md cursor-pointer">
-      <button (click)="getItemId()" class="text-white">Watch now</button>
+    <div
+      class="rounded-xl cursor-pointer w-52 h-52"
+      (click)="getItemId()"
+      [ngStyle]="{
+        'background-image': getBgImage(),
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover'
+      }"
+    >
+      <div class="py-2 px-4 h-full flex flex-col justify-between">
+        <div
+          class="flex flex-row items-center bg-theme-black px-2 py-0.5 space-x-1 w-min rounded-2xl"
+        >
+          <app-icon variant="rating"></app-icon>
+          <p class="text-white text-sm">{{ tvShow.vote_average }}</p>
+        </div>
+        <div class="flex flex-col space-y-1 text-white truncate ...">
+          <p class="text-xl font-semibold">{{ tvShow.original_name }}</p>
+          <p class="text-base">{{ tvShow.first_air_date | date : "YYYY" }}</p>
+        </div>
+      </div>
     </div>
   </ng-container>
 </div>

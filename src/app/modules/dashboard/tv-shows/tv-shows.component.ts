@@ -1,15 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { TvShow } from 'app-types';
+import { TvShowsService } from '../../shared/services/tvshow.service';
 
 @Component({
   selector: 'app-tv-shows',
   templateUrl: './tv-shows.component.html',
-  styleUrls: ['./tv-shows.component.css']
+  styleUrls: ['./tv-shows.component.css'],
 })
-export class TvShowsComponent implements OnInit {
+export class TvShowsComponent implements OnInit, OnDestroy {
+  popularTvShowsSub!: Subscription;
+  topRatedTvShowsSub!: Subscription;
+  nowPlayingTvShowsSub!: Subscription;
 
-  constructor() { }
+  popularTvShows!: TvShow[];
+  topRatedTvShows!: TvShow[];
+  nowPlayingTvShows!: TvShow[];
+
+  constructor(public tvShowService: TvShowsService) {}
 
   ngOnInit(): void {
+    this.popularTvShowsSub = this.tvShowService.$popular.subscribe((res) => {
+      this.popularTvShows = res.results;
+    });
+    this.topRatedTvShowsSub = this.tvShowService.$topRated.subscribe((res) => {
+      this.topRatedTvShows = res.results;
+    });
+    this.nowPlayingTvShowsSub = this.tvShowService.$nowPlaying.subscribe(
+      (res) => {
+        this.nowPlayingTvShows = res.results;
+      }
+    );
   }
 
+  ngOnDestroy(): void {
+    this.popularTvShowsSub.unsubscribe();
+    this.topRatedTvShowsSub.unsubscribe();
+    this.nowPlayingTvShowsSub.unsubscribe();
+  }
 }

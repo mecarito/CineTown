@@ -1,1 +1,39 @@
-<p class=" text-white">tv-shows works!</p>
+
+<div >
+  <section class="flex flex-col space-y-11 w-full">
+    <div class="flex flex-col space-y-5" *ngIf="this.popularTvShows">
+      <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="tvShow"
+          [tvShow]="tvShow"
+          *ngFor="let tvShow of popularTvShows"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-5" *ngIf="this.topRatedTvShows">
+      <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="tvShow"
+          [tvShow]="tvShow"
+          *ngFor="let tvShow of topRatedTvShows"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-5" *ngIf="this.nowPlayingTvShows">
+      <h1 class="text-white capitalize text-2xl font-semibold">Now playing</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="tvShow"
+          [tvShow]="tvShow"
+          *ngFor="let tvShow of nowPlayingTvShows"
+        ></app-card>
+      </div>
+    </div>
+  </section>
+ 
+</div>
+
