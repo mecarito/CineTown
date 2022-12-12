@@ -1,1 +1,21 @@
-<p class=" text-white">categories works!</p>
+<div>
+  <section class="flex flex-col space-y-8">
+    <h1 class="text-white text-2xl">Movie Categories</h1>
+    <div class="flex flex-row gap-5 flex-wrap">
+      <app-category
+        *ngFor="let category of movieCategories"
+        [label]="category.name"
+      ></app-category>
+    </div>
+  </section>
+
+  <section class="flex flex-col space-y-8 mt-10">
+    <h1 class="text-white text-2xl">TV shows Categories</h1>
+    <div class="flex flex-row gap-5 flex-wrap">
+      <app-category
+        *ngFor="let category of tvShowCategories"
+        [label]="category.name"
+      ></app-category>
+    </div>
+  </section>
+</div>
