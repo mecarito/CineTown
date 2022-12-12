@@ -8,6 +8,7 @@ module.exports = {
         "theme-red": "#EB1C24",
         "theme-purple": "#1A171E",
         "theme-light-blue": "#E3E7EB",
+        "theme-yellow": "#FFC728",
       },
       fontFamily: {
         lato: "'Lato', sans-serif",

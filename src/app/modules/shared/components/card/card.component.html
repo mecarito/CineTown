@@ -1,0 +1,30 @@
+<div>
+  <ng-container *ngIf="variant === 'movie'">
+    <div
+      class="rounded-xl cursor-pointer w-52 h-52 relative"
+      (click)="getItemId()"
+    >
+      <img [src]="url" alt="movie image" class="w-full h-full rounded-xl" />
+      <div
+        class="z-50 absolute left-4 right-4 bottom-2 top-2 flex flex-col justify-between"
+      >
+        <div
+          class="flex flex-row items-center bg-theme-black px-2 py-0.5 space-x-1 w-min rounded-2xl"
+        >
+          <app-icon variant="rating"></app-icon>
+          <p class="text-white text-sm">7.9</p>
+        </div>
+        <div class="flex flex-col space-y-1 text-white truncate ...">
+          <p class="text-xl font-semibold">Extraction</p>
+          <p class="text-base">2021</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="variant === 'tvShow'">
+    <div class="flex flex-col rounded-md cursor-pointer">
+      <button (click)="getItemId()" class="text-white">Watch now</button>
+    </div>
+  </ng-container>
+</div>
