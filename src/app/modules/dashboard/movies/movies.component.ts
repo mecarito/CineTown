@@ -1,15 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Movie } from 'app-types';
+import { MoviesService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  styleUrls: ['./movies.component.css'],
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnInit, OnDestroy {
+  popularMoviesSub!: Subscription;
+  topRatedMoviesSub!: Subscription;
+  upComingMoviesSub!: Subscription;
+  nowPlayingMoviesSub!: Subscription;
 
-  constructor() { }
+  popularMovies!: Movie[];
+  topRatedMovies!: Movie[];
+  upComingMovies!: Movie[];
+  nowPlayingMovies!: Movie[];
+
+  constructor(public movieService: MoviesService) {}
 
   ngOnInit(): void {
+    this.popularMoviesSub = this.movieService.$popular.subscribe((res) => {
+      this.popularMovies = res.results;
+    });
+    this.topRatedMoviesSub = this.movieService.$topRated.subscribe((res) => {
+      this.topRatedMovies = res.results;
+    });
+    this.upComingMoviesSub = this.movieService.$upComing.subscribe((res) => {
+      this.upComingMovies = res.results;
+    });
+    this.nowPlayingMoviesSub = this.movieService.$nowPlaying.subscribe(
+      (res) => {
+        this.nowPlayingMovies = res.results;
+      }
+    );
   }
 
+  ngOnDestroy(): void {
+    this.popularMoviesSub.unsubscribe();
+    this.topRatedMoviesSub.unsubscribe();
+    this.upComingMoviesSub.unsubscribe();
+    this.nowPlayingMoviesSub.unsubscribe();
+  }
 }

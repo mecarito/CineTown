@@ -1,1 +1,49 @@
-<p class=" text-white">movies works!</p>
+<div >
+  <section class="flex flex-col space-y-11 w-full">
+    <div class="flex flex-col space-y-5" *ngIf="this.popularMovies">
+      <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="movie"
+          [movie]="movie"
+          *ngFor="let movie of popularMovies"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-5" *ngIf="this.topRatedMovies">
+      <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="movie"
+          [movie]="movie"
+          *ngFor="let movie of topRatedMovies"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-5" *ngIf="this.upComingMovies">
+      <h1 class="text-white capitalize text-2xl font-semibold">Upcoming</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="movie"
+          [movie]="movie"
+          *ngFor="let movie of upComingMovies"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-5" *ngIf="this.nowPlayingMovies">
+      <h1 class="text-white capitalize text-2xl font-semibold">Now playing</h1>
+      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+        <app-card
+          variant="movie"
+          [movie]="movie"
+          *ngFor="let movie of nowPlayingMovies"
+        ></app-card>
+      </div>
+    </div>
+  </section>
+ 
+</div>
+
