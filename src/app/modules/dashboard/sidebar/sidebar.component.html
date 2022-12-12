@@ -1,0 +1,28 @@
+<div class="pt-6 bg-theme-purple h-full relative">
+  <p class="px-5 pb-2 text-theme-red text-3xl font-semibold" routerLink="">
+    Cine Town
+  </p>
+
+  <nav class="my-6 px-4 text-base">
+    <ul class="flex flex-col space-y-4">
+      <li *ngFor="let section of sections">
+        <a
+          [routerLink]="section.link"
+          class="flex flex-row space-x-4 px-2 items-center py-1.5 text-gray-400 hover:text-white stroke-gray-400 hover:stroke-theme-red focus:text-white focus:stroke-theme-red"
+        >
+          <app-icon [variant]="section.iconName"></app-icon>
+          <p class=" text-base">{{ section.title }}</p>
+        </a>
+      </li>
+    </ul>
+    <div class="bg-bg-border h-px mx-2 mt-4"></div>
+  </nav>
+
+  <a
+    routerLink="/account/signin"
+    class="flex flex-row space-x-4 px-6 items-center py-1.5 text-gray-400 hover:text-white stroke-gray-400 hover:stroke-theme-red focus:text-white focus:stroke-theme-red absolute bottom-20 left-0 right-0"
+  >
+    <app-icon variant="logout"></app-icon>
+    <p class="text-base">Log out</p>
+  </a>
+</div>

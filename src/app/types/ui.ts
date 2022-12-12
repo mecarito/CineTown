@@ -1,4 +1,4 @@
-export type Icons = 'google' | 'eye' | 'eyeOff'
+export type Icons = 'google' | 'eye' | 'eyeOff' | 'tvShow' | 'movie' | 'home' | 'category' | 'logout'
 
 export type Buttons = 'filled' | 'outline'
 

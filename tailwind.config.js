@@ -12,6 +12,11 @@ module.exports = {
       fontFamily: {
         lato: "'Lato', sans-serif",
       },
+      screens: {
+        lg: "1280px",
+        lgxl: "1366px",
+        lgxxl: "1920px",
+      },
     },
   },
   plugins: [],
