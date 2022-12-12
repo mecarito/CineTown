@@ -1,13 +1,13 @@
 export interface TvShow {
-  backdrop_path: String;
-  first_air_date: String;
+  backdrop_path: string;
+  first_air_date: string;
   genre_ids: number[];
   id: number;
-  name: String;
+  name: string;
   origin_country: string[];
-  original_language: String;
-  original_name: String;
-  overview: String;
+  original_language: string;
+  original_name: string;
+  overview: string;
   popularity: number;
   poster_path: string;
   vote_average: number;

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cards, Movie, TvShow } from 'app-types';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card',
@@ -11,13 +12,17 @@ export class CardComponent implements OnInit {
   @Input() movie!: Movie;
   @Input() tvShow!: TvShow;
   @Output() clickEvent = new EventEmitter<string>();
+  imageBaseUrl = environment.imageUrl;
 
-  url =
-    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=224&q=80';
+  url = 'https://image.tmdb.org/t/p/w300/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg';
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  getBgImage() {
+    return `url(${this.imageBaseUrl}${this.movie.poster_path})`;
+  }
 
   getItemId() {
     this.clickEvent.emit();
