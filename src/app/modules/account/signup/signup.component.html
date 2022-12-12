@@ -1,1 +1,35 @@
-<div class=" bg-theme-purple h-screen"></div>
+<div
+  class="bg-theme-light-blue h-screen flex flex-row items-center justify-center"
+>
+  <div class="bg-white py-4 px-8 rounded-md">
+    <h1 class="text-theme-black text-3xl font-semibold">Sign up</h1>
+    <p class="text-gray-500 text-lg my-4">Get started by creating an account</p>
+    <app-button variant="outline" label="Sign up with Google"></app-button>
+
+    <section class="flex flex-row items-center my-8">
+      <div class="w-full h-[1px] bg-gray-300"></div>
+      <p class="mx-4">Or</p>
+      <div class="w-full h-[1px] bg-gray-300"></div>
+    </section>
+    <section class="flex flex-col space-y-6">
+      <div class="flex flex-col space-y-2 text-theme-black">
+        <label for="email">Email</label>
+        <app-input variant="text" id="email"></app-input>
+      </div>
+
+      <div class="flex flex-col space-y-2 text-theme-black">
+        <label for="password">Password</label>
+        <app-input variant="password" id="password"></app-input>
+      </div>
+      <app-button variant="filled" label="Sign up"></app-button>
+    </section>
+
+    <p class="text-base text-gray-500 text-center my-4">
+      Already hava an account?<span
+        class="text-theme-black underline ml-2 cursor-pointer"
+        routerLink="/account/signin"
+        >Sign in</span
+      >
+    </p>
+  </div>
+</div>

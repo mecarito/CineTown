@@ -6,9 +6,9 @@ import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'signin', pathMatch: 'full' },
   {
-    path: 'login',
+    path: 'signin',
     component: LoginComponent,
   },
   { path: 'signup', component: SignupComponent },
