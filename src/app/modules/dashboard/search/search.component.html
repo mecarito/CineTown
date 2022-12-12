@@ -1,1 +1,29 @@
-<p class=" text-white">search works!</p>
+<div>
+  <section class="w-1/2">
+    <app-search-bar (searchEvent)="search($event)"></app-search-bar>
+  </section>
+
+  <section class="flex flex-col space-y-12 w-full mt-8">
+    <div class="flex flex-col space-y-5" *ngIf="movies.length > 0">
+      <h1 class="text-white capitalize text-2xl font-semibold">Movies</h1>
+      <div class="flex flex-row gap-5 flex-wrap">
+        <app-card
+          variant="movie"
+          [movie]="movie"
+          *ngFor="let movie of movies"
+        ></app-card>
+      </div>
+    </div>
+
+    <div class="flex flex-col space-y-5" *ngIf="tvShows.length > 0">
+      <h1 class="text-white capitalize text-2xl font-semibold">Tv shows</h1>
+      <div class="flex flex-row gap-5 flex-wrap">
+        <app-card
+          variant="tvShow"
+          [tvShow]="tvShow"
+          *ngFor="let tvShow of tvShows"
+        ></app-card>
+      </div>
+    </div>
+  </section>
+</div>

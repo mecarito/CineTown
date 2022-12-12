@@ -13,22 +13,24 @@ export class TvShowsComponent implements OnInit, OnDestroy {
   topRatedTvShowsSub!: Subscription;
   nowPlayingTvShowsSub!: Subscription;
 
-  popularTvShows!: TvShow[];
-  topRatedTvShows!: TvShow[];
-  nowPlayingTvShows!: TvShow[];
+  popularTvShows: TvShow[] = [];
+  topRatedTvShows: TvShow[] = [];
+  nowPlayingTvShows: TvShow[] = [];
 
   constructor(public tvShowService: TvShowsService) {}
 
   ngOnInit(): void {
     this.popularTvShowsSub = this.tvShowService.$popular.subscribe((res) => {
-      this.popularTvShows = res.results;
+      this.popularTvShows = res.results.filter((tvshow) => tvshow.poster_path);
     });
     this.topRatedTvShowsSub = this.tvShowService.$topRated.subscribe((res) => {
-      this.topRatedTvShows = res.results;
+      this.topRatedTvShows = res.results.filter((tvshow) => tvshow.poster_path);
     });
     this.nowPlayingTvShowsSub = this.tvShowService.$nowPlaying.subscribe(
       (res) => {
-        this.nowPlayingTvShows = res.results;
+        this.nowPlayingTvShows = res.results.filter(
+          (tvshow) => tvshow.poster_path
+        );
       }
     );
   }

@@ -14,26 +14,28 @@ export class MoviesComponent implements OnInit, OnDestroy {
   upComingMoviesSub!: Subscription;
   nowPlayingMoviesSub!: Subscription;
 
-  popularMovies!: Movie[];
-  topRatedMovies!: Movie[];
-  upComingMovies!: Movie[];
-  nowPlayingMovies!: Movie[];
+  popularMovies: Movie[] = [];
+  topRatedMovies: Movie[] = [];
+  upComingMovies: Movie[] = [];
+  nowPlayingMovies: Movie[] = [];
 
   constructor(public movieService: MoviesService) {}
 
   ngOnInit(): void {
     this.popularMoviesSub = this.movieService.$popular.subscribe((res) => {
-      this.popularMovies = res.results;
+      this.popularMovies = res.results.filter((movie) => movie.poster_path);
     });
     this.topRatedMoviesSub = this.movieService.$topRated.subscribe((res) => {
-      this.topRatedMovies = res.results;
+      this.topRatedMovies = res.results.filter((movie) => movie.poster_path);
     });
     this.upComingMoviesSub = this.movieService.$upComing.subscribe((res) => {
-      this.upComingMovies = res.results;
+      this.upComingMovies = res.results.filter((movie) => movie.poster_path);
     });
     this.nowPlayingMoviesSub = this.movieService.$nowPlaying.subscribe(
       (res) => {
-        this.nowPlayingMovies = res.results;
+        this.nowPlayingMovies = res.results.filter(
+          (movie) => movie.poster_path
+        );
       }
     );
   }

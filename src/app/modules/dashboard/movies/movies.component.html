@@ -1,6 +1,6 @@
 <div >
   <section class="flex flex-col space-y-11 w-full">
-    <div class="flex flex-col space-y-5" *ngIf="this.popularMovies">
+    <div class="flex flex-col space-y-5" *ngIf="popularMovies.length > 0">
       <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
       <div class="flex flex-row items-center space-x-6 overflow-hidden">
         <app-card
@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col space-y-5" *ngIf="this.topRatedMovies">
+    <div class="flex flex-col space-y-5" *ngIf="topRatedMovies.length > 0">
       <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
       <div class="flex flex-row items-center space-x-6 overflow-hidden">
         <app-card
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col space-y-5" *ngIf="this.upComingMovies">
+    <div class="flex flex-col space-y-5" *ngIf="upComingMovies.length > 0">
       <h1 class="text-white capitalize text-2xl font-semibold">Upcoming</h1>
       <div class="flex flex-row items-center space-x-6 overflow-hidden">
         <app-card
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="flex flex-col space-y-5" *ngIf="this.nowPlayingMovies">
+    <div class="flex flex-col space-y-5" *ngIf="nowPlayingMovies.length > 0">
       <h1 class="text-white capitalize text-2xl font-semibold">Now playing</h1>
       <div class="flex flex-row items-center space-x-6 overflow-hidden">
         <app-card
