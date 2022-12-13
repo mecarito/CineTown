@@ -8,16 +8,20 @@ import { MoviesComponent } from './movies/movies.component';
 import { TvShowsComponent } from './tv-shows/tv-shows.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SearchComponent } from './search/search.component';
+import { CategoryComponent } from './movies/category/category.component';
+import { TvCategoryComponent } from './tv-shows/tv-category/tv-category.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     children: [
-      { path: '', component: SearchComponent  },
+      { path: '', component: SearchComponent },
       { path: 'search', redirectTo: '', pathMatch: 'full' },
       { path: 'movies', component: MoviesComponent },
+      { path: 'movies/:category', component: CategoryComponent },
       { path: 'tvShows', component: TvShowsComponent },
+      { path: 'tvShows/:category', component: TvCategoryComponent },
       { path: 'categories', component: CategoriesComponent },
     ],
   },
@@ -33,6 +37,8 @@ const routes: Routes = [
     TvShowsComponent,
     CategoriesComponent,
     SearchComponent,
+    CategoryComponent,
+    TvCategoryComponent,
   ],
   providers: [],
 })

@@ -5,7 +5,7 @@
         <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
         <div
           class="flex flex-row items-center space-x-1 cursor-pointer"
-          (click)="saveTvShows(popularTvShows)"
+          (click)="saveTvShows(popularTvShows, 'popular')"
         >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
@@ -25,7 +25,7 @@
         <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
         <div
           class="flex flex-row items-center space-x-1 cursor-pointer"
-          (click)="saveTvShows(topRatedTvShows)"
+          (click)="saveTvShows(topRatedTvShows, 'topRated')"
         >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
@@ -47,7 +47,7 @@
         </h1>
         <div
           class="flex flex-row items-center space-x-1 cursor-pointer"
-          (click)="saveTvShows(nowPlayingTvShows)"
+          (click)="saveTvShows(nowPlayingTvShows, 'nowPlaying')"
         >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
