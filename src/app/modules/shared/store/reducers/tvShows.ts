@@ -7,6 +7,7 @@ const initialState: TvShow[] = [];
 export const TvShowReducer = createReducer(
   initialState,
   on(saveSelectedTvShows, (state, payload) => {
+    state = [];
     return [...state, ...payload.tvShows];
   })
 );

@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from 'app-types';
 import { MoviesService } from '../../shared/services/movies.service';
-import {} from 'app-store';
+import { saveSelectedMovies } from 'app-store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-movies',
@@ -20,7 +21,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
   upComingMovies: Movie[] = [];
   nowPlayingMovies: Movie[] = [];
 
-  constructor(public movieService: MoviesService) {}
+  constructor(public movieService: MoviesService, public store: Store) {}
 
   ngOnInit(): void {
     this.popularMoviesSub = this.movieService.$popular.subscribe((res) => {
@@ -46,5 +47,9 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.topRatedMoviesSub.unsubscribe();
     this.upComingMoviesSub.unsubscribe();
     this.nowPlayingMoviesSub.unsubscribe();
+  }
+
+  saveMovies(movies: Movie[]) {
+    this.store.dispatch(saveSelectedMovies({ movies: movies }));
   }
 }

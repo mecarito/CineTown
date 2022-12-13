@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TvShow } from 'app-types';
 import { TvShowsService } from '../../shared/services/tvshow.service';
+import { saveSelectedTvShows } from 'app-store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-tv-shows',
@@ -17,7 +19,7 @@ export class TvShowsComponent implements OnInit, OnDestroy {
   topRatedTvShows: TvShow[] = [];
   nowPlayingTvShows: TvShow[] = [];
 
-  constructor(public tvShowService: TvShowsService) {}
+  constructor(public tvShowService: TvShowsService, public store: Store) {}
 
   ngOnInit(): void {
     this.popularTvShowsSub = this.tvShowService.$popular.subscribe((res) => {
@@ -39,5 +41,9 @@ export class TvShowsComponent implements OnInit, OnDestroy {
     this.popularTvShowsSub.unsubscribe();
     this.topRatedTvShowsSub.unsubscribe();
     this.nowPlayingTvShowsSub.unsubscribe();
+  }
+
+  saveTvShows(tvShow: TvShow[]) {
+    this.store.dispatch(saveSelectedTvShows({ tvShows: tvShow }));
   }
 }

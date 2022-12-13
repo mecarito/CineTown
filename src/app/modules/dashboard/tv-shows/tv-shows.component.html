@@ -3,7 +3,10 @@
     <div class="flex flex-col space-y-5" *ngIf="popularTvShows.length > 0">
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveTvShows(popularTvShows)"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
@@ -20,7 +23,10 @@
     <div class="flex flex-col space-y-5" *ngIf="topRatedTvShows.length > 0">
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveTvShows(topRatedTvShows)"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
@@ -39,7 +45,10 @@
         <h1 class="text-white capitalize text-2xl font-semibold">
           Now playing
         </h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveTvShows(nowPlayingTvShows)"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>

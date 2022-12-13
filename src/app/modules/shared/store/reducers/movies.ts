@@ -7,6 +7,7 @@ const initialState: Movie[] = [];
 export const MoviesReducer = createReducer(
   initialState,
   on(saveSelectedMovies, (state, payload) => {
+    state = [];
     return [...state, ...payload.movies];
   })
 );

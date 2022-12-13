@@ -13,6 +13,8 @@ import { AccountModule } from './modules/account/account.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { GlobalInterceptor } from './modules/shared/interceptors/global-interceptor';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { MoviesReducer, TvShowReducer } from './modules/shared/store/reducers';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,11 @@ import { StoreModule } from '@ngrx/store';
     DashboardModule,
     SharedModule,
     AccountModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ movies: MoviesReducer, tvShows: TvShowReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },
