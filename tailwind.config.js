@@ -18,6 +18,11 @@ module.exports = {
         lgxl: "1366px",
         lgxxl: "1920px",
       },
+      spacing: {
+        "movie-c-h": "21.25rem",
+        "movie-c-w": "11.875rem",
+        "movie-i-h": "17.5rem",
+      },
     },
   },
   plugins: [],
