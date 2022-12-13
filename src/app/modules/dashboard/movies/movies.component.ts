@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Movie } from 'app-types';
 import { MoviesService } from '../../shared/services/movies.service';
+import {} from 'app-store';
 
 @Component({
   selector: 'app-movies',

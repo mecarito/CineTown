@@ -12,6 +12,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AccountModule } from './modules/account/account.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { GlobalInterceptor } from './modules/shared/interceptors/global-interceptor';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { GlobalInterceptor } from './modules/shared/interceptors/global-intercep
     DashboardModule,
     SharedModule,
     AccountModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: GlobalInterceptor, multi: true },

@@ -7,10 +7,14 @@ export type Icons =
   | 'search'
   | 'category'
   | 'logout'
-  | 'rating';
+  | 'rating'
+  | 'arrow-right';
 
 export type Buttons = 'filled' | 'outline';
 
 export type Inputs = 'text' | 'password';
 
 export type Cards = 'movie' | 'tvShow';
+
+
+
