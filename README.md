@@ -1,8 +1,19 @@
-# MovieLibrary
+# Cine Town
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+Cine Town is a web application that fetches and displays movies and Tv shows information from the movie database API (TMDB)
+
+## Design inspiration
+
+1. Login & sign up pages. [dribble](https://dribbble.com/shots/16703354-Log-in-page-Untitled-UI)
+2. Components. [dribble](https://dribbble.com/shots/17514939/attachments/12654819?mode=media)
+
+## API
+
+The Movie Database API. [API](https://developers.themoviedb.org/3/getting-started/introduction)
 
 ## Development server
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
