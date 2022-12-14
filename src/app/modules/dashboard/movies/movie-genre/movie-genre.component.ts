@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'app-types';
 import { Subscription } from 'rxjs';
@@ -16,7 +16,6 @@ export class MovieGenreComponent implements OnInit {
   genreId!: string | null;
   movies: Movie[] = [];
   searching = true;
-  @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(
     public route: ActivatedRoute,
@@ -37,7 +36,6 @@ export class MovieGenreComponent implements OnInit {
           this.movies = movies.results;
         });
     }
-    this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
   ngOnDestroy(): void {

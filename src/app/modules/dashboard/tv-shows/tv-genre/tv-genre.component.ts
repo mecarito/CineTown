@@ -1,9 +1,7 @@
 import {
   Component,
-  ElementRef,
   OnDestroy,
   OnInit,
-  ViewChild,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TvShow } from 'app-types';
@@ -22,7 +20,6 @@ export class TvGenreComponent implements OnInit, OnDestroy {
   genreId!: string | null;
   tvShows: TvShow[] = [];
   searching = true;
-  @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(
     public route: ActivatedRoute,
@@ -43,7 +40,6 @@ export class TvGenreComponent implements OnInit, OnDestroy {
           this.tvShows = tvShows.results;
         });
     }
-    this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
   ngOnDestroy(): void {
