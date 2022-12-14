@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectCategoryTvShows } from 'app-store';
@@ -13,7 +13,6 @@ import { Subscription } from 'rxjs';
 export class TvCategoryComponent implements OnInit {
   storeSub!: Subscription;
   tvShows: TvShow[] = [];
-  @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(public store: Store, public router: Router) {}
 
@@ -21,7 +20,6 @@ export class TvCategoryComponent implements OnInit {
     this.storeSub = this.store
       .select(selectCategoryTvShows as any)
       .subscribe((tvShows: any) => (this.tvShows = tvShows));
-    this.top.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 
   ngOnDestroy(): void {
