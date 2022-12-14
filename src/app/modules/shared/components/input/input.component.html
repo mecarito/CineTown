@@ -2,21 +2,23 @@
   <ng-container *ngIf="variant === 'text'">
     <input
       [type]="variant"
-      class="w-96 py-2 px-4 h-12 ring-1 ring-gray-300 focus:ring-theme-black text-theme-black bg-white rounded-lg text-base"
+      [class]="valid ? validInput : invalidInput"
       [id]="id"
       [autocomplete]="id"
+      #text
+      (input)="onTextChange(text.value)"
     />
   </ng-container>
 
   <ng-container *ngIf="variant === 'password'">
-    <div
-      class="w-96 py-2 px-4 h-12 ring-1 focus-within:ring-2 ring-gray-300 focus-within:ring-theme-black text-theme-black bg-white rounded-lg text-base flex flex-row space-x-2 items-center"
-    >
+    <div [class]="valid ? validPassword : invalidPassword">
       <input
-        [type]="visible ? 'text': 'password' "
+        [type]="visible ? 'text' : 'password'"
         class="outline-none border-none w-full"
         [id]="id"
         [autocomplete]="id"
+        #password
+        (input)="onPasswordChange(password.value)"
       />
       <app-icon
         variant="eye"

@@ -1,6 +1,9 @@
 <div>
   <ng-container *ngIf="variant === 'filled'">
-    <button class="w-96 py-2 h-12 bg-theme-black text-white rounded-lg text-lg">
+    <button
+      class="w-96 py-2 h-12 bg-theme-black text-white rounded-lg text-lg"
+      (click)="onClick()"
+    >
       {{ label }}
     </button>
   </ng-container>
@@ -8,6 +11,7 @@
   <ng-container *ngIf="variant === 'outline'">
     <button
       class="w-96 py-2 h-12 bg-white text-theme-black rounded-lg text-lg border-[1px] border-gray-300 flex flex-row items-center justify-center space-x-4"
+      (click)="onClick()"
     >
       <app-icon variant="google"></app-icon>
       <p>{{ label }}</p>
