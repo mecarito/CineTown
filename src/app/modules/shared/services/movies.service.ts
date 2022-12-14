@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class MoviesService {
   private baseUrl = environment.baseUrl;
   private movieUrl = `${this.baseUrl}/movie`;
+  private discoverMovieUrl = `${this.baseUrl}/discover/movie`;
 
   constructor(private http: HttpClient) {}
 
@@ -27,4 +28,13 @@ export class MoviesService {
     .get<MovieQueryResponse>(`${this.movieUrl}/now_playing`)
     .pipe(retry(1));
 
+  getGenreMovies(genreId: string): Observable<MovieQueryResponse> {
+    return this.http
+      .get<MovieQueryResponse>(`${this.discoverMovieUrl}`, {
+        params: {
+          with_genres: genreId
+        },
+      })
+      .pipe(retry(1));
+  }
 }

@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class TvShowsService {
   private baseUrl = environment.baseUrl;
   private tvShowUrl = `${this.baseUrl}/tv`;
+  private discoverTvShowUrl = `${this.baseUrl}/discover/tv`;
 
   constructor(private http: HttpClient) {}
 
@@ -22,4 +23,15 @@ export class TvShowsService {
   $nowPlaying = this.http
     .get<TvShowQueryResponse>(`${this.tvShowUrl}/on_the_air`)
     .pipe(retry(1));
+
+  getGenreTvShows(genreId: string): Observable<TvShowQueryResponse> {
+    return this.http
+      .get<TvShowQueryResponse>(`${this.discoverTvShowUrl}`, {
+        params: {
+          with_genres: genreId,
+        },
+      })
+      .pipe(retry(1));
+  }
 }
+

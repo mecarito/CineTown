@@ -1,0 +1,14 @@
+<div #top>
+  <div class="flex flex-col space-y-5" *ngIf="tvShows.length > 0">
+    <h1 class="text-white capitalize text-2xl font-semibold">
+      {{ genreName }} Tv Shows
+    </h1>
+    <div class="flex flex-row gap-5 flex-wrap">
+      <app-card
+        variant="tvShow"
+        [tvShow]="tvShow"
+        *ngFor="let tvShow of tvShows"
+      ></app-card>
+    </div>
+  </div>
+</div>

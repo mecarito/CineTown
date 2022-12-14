@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   storeSub!: Subscription;
-  movies!: Movie[];
+  movies: Movie[]= []
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(public store: Store) {}

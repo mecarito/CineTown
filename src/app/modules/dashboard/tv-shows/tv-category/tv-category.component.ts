@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class TvCategoryComponent implements OnInit {
   storeSub!: Subscription;
-  tvShows!: TvShow[];
+  tvShows: TvShow[] = [];
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(public store: Store) {}

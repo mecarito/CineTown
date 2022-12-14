@@ -1,0 +1,14 @@
+<div #top>
+  <div class="flex flex-col space-y-5" *ngIf="movies.length > 0">
+    <h1 class="text-white capitalize text-2xl font-semibold">
+      {{ genreName }} Movies
+    </h1>
+    <div class="flex flex-row gap-5 flex-wrap">
+      <app-card
+        variant="movie"
+        [movie]="movie"
+        *ngFor="let movie of movies"
+      ></app-card>
+    </div>
+  </div>
+</div>

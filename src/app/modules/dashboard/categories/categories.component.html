@@ -4,7 +4,8 @@
     <div class="flex flex-row gap-5 flex-wrap">
       <app-category
         *ngFor="let category of movieCategories"
-        [label]="category.name"
+        [genre]="category"
+        (clickEvent)="goToMovieGenrePage($event)"
       ></app-category>
     </div>
   </section>
@@ -14,7 +15,8 @@
     <div class="flex flex-row gap-5 flex-wrap">
       <app-category
         *ngFor="let category of tvShowCategories"
-        [label]="category.name"
+        [genre]="category"
+        (clickEvent)="goToTvShowGenrePage($event)"
       ></app-category>
     </div>
   </section>
