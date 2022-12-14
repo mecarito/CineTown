@@ -13,18 +13,22 @@ export class SearchComponent implements OnInit, OnDestroy {
   tvShowSub!: Subscription;
 
   searchTerm!: string;
-  movies: Movie[] = []
-  tvShows: TvShow[] = []
+  movies: Movie[] = [];
+  tvShows: TvShow[] = [];
+  searching!: boolean;
 
   constructor(private searchService: SearchService) {}
 
   ngOnInit(): void {
     this.moviesSub = this.searchService.movieSearchResults$.subscribe((res) => {
-      this.movies = res.results.filter( movie => movie.poster_path)
+      if (res) {
+        this.searching = false;
+      }
+      this.movies = res.results.filter((movie) => movie.poster_path);
     });
     this.tvShowSub = this.searchService.tvShowSearchResults$.subscribe(
       (res) => {
-        this.tvShows = res.results.filter( tvshow => tvshow.poster_path)
+        this.tvShows = res.results.filter((tvshow) => tvshow.poster_path);
       }
     );
   }
@@ -36,6 +40,9 @@ export class SearchComponent implements OnInit, OnDestroy {
   search(search: string) {
     this.searchTerm = search;
     if (search) {
+      this.searching = true;
+      this.movies = [];
+      this.tvShows = [];
       this.searchService.setSearchTerm(search);
     }
   }

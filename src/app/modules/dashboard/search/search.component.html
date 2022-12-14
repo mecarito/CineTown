@@ -3,6 +3,25 @@
     <app-search-bar (searchEvent)="search($event)"></app-search-bar>
   </section>
 
+  <section class="my-14" *ngIf="searchTerm">
+    <app-spinner *ngIf="searching"></app-spinner>
+    <div
+      class="flex flex-col items-center space-y-4"
+      *ngIf="movies.length === 0 && tvShows.length === 0 && !searching"
+    >
+      <p class="text-white text-xl">
+        Couldn't find any movies or Tv show with the name:
+      </p>
+      <p class="text-white text-2xl font-semibold">{{ searchTerm }}</p>
+    </div>
+  </section>
+
+  <section *ngIf="movies.length === 0 && tvShows.length === 0" class="my-20">
+    <p class="text-2xl text-white text-center" *ngIf="!searchTerm">
+      Movies and shows you search will appear here
+    </p>
+  </section>
+
   <section class="flex flex-col space-y-12 w-full mt-8">
     <div class="flex flex-col space-y-5" *ngIf="movies.length > 0">
       <h1 class="text-white capitalize text-2xl font-semibold">Movies</h1>

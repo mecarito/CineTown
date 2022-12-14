@@ -6,11 +6,28 @@ import { InputComponent } from './components/input/input.component';
 import { CardComponent } from './components/card/card.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ButtonComponent, IconComponent, InputComponent, CardComponent, CategoryComponent, SearchBarComponent],
+  declarations: [
+    ButtonComponent,
+    IconComponent,
+    InputComponent,
+    CardComponent,
+    CategoryComponent,
+    SearchBarComponent,
+    SpinnerComponent,
+  ],
   providers: [],
-  exports: [ButtonComponent, IconComponent, InputComponent, CardComponent, CategoryComponent, SearchBarComponent],
+  exports: [
+    ButtonComponent,
+    IconComponent,
+    InputComponent,
+    CardComponent,
+    CategoryComponent,
+    SearchBarComponent,
+    SpinnerComponent,
+  ],
 })
 export class SharedModule {}
