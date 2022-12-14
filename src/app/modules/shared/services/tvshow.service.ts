@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
-import { TvShowQueryResponse } from 'app-types';
+import { TvShowQueryResponse, TvShow } from 'app-types';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
@@ -33,5 +33,10 @@ export class TvShowsService {
       })
       .pipe(retry(1));
   }
-}
 
+  getTvShow(tvShowId: string): Observable<TvShow> {
+    return this.http
+      .get<TvShow>(`${this.tvShowUrl}/${Number(tvShowId)}`)
+      .pipe(retry(1));
+  }
+}

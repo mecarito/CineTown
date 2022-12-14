@@ -30,7 +30,7 @@
           variant="movie"
           [movie]="movie"
           *ngFor="let movie of movies"
-           (movieClickEvent)="goToMoviePage($event)"
+          (movieClickEvent)="goToMoviePage($event)"
         ></app-card>
       </div>
     </div>
@@ -42,6 +42,7 @@
           variant="tvShow"
           [tvShow]="tvShow"
           *ngFor="let tvShow of tvShows"
+          (tvShowClickEvent)="goToTvShowPage($event)"
         ></app-card>
       </div>
     </div>

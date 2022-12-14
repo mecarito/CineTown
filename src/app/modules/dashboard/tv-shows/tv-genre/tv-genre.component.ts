@@ -1,7 +1,13 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { TvShow } from 'app-types'
-import { ActivatedRoute } from '@angular/router';
+import { TvShow } from 'app-types';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TvShowsService } from 'src/app/modules/shared/services/tvshow.service';
 
 @Component({
@@ -17,7 +23,11 @@ export class TvGenreComponent implements OnInit, OnDestroy {
   tvShows: TvShow[] = [];
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
-  constructor(public route: ActivatedRoute, public tvShowService: TvShowsService) {}
+  constructor(
+    public route: ActivatedRoute,
+    public tvShowService: TvShowsService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
     this.genreName = this.route.snapshot.paramMap.get('genre');
@@ -34,5 +44,13 @@ export class TvGenreComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.tvShowSub.unsubscribe();
+  }
+
+  goToTvShowPage(tvShow: TvShow) {
+    this.router.navigate(['tvShow'], {
+      queryParams: {
+        id: tvShow.id,
+      },
+    });
   }
 }

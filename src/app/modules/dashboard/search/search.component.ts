@@ -55,4 +55,12 @@ export class SearchComponent implements OnInit, OnDestroy {
       },
     });
   }
+
+  goToTvShowPage(tvShow: TvShow) {
+    this.router.navigate(['tvShow'], {
+      queryParams: {
+        id: tvShow.id,
+      },
+    });
+  }
 }

@@ -16,6 +16,7 @@
           variant="tvShow"
           [tvShow]="tvShow"
           *ngFor="let tvShow of popularTvShows"
+          (tvShowClickEvent)="goToTvShowPage($event)"
         ></app-card>
       </div>
     </div>
@@ -36,6 +37,7 @@
           variant="tvShow"
           [tvShow]="tvShow"
           *ngFor="let tvShow of topRatedTvShows"
+          (tvShowClickEvent)="goToTvShowPage($event)"
         ></app-card>
       </div>
     </div>
@@ -58,6 +60,7 @@
           variant="tvShow"
           [tvShow]="tvShow"
           *ngFor="let tvShow of nowPlayingTvShows"
+          (tvShowClickEvent)="goToTvShowPage($event)"
         ></app-card>
       </div>
     </div>

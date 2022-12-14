@@ -8,6 +8,7 @@
         variant="tvShow"
         [tvShow]="tvShow"
         *ngFor="let tvShow of tvShows"
+         (tvShowClickEvent)="goToTvShowPage($event)"
       ></app-card>
     </div>
   </div>

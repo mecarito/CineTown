@@ -20,7 +20,11 @@ export class TvShowsComponent implements OnInit, OnDestroy {
   topRatedTvShows: TvShow[] = [];
   nowPlayingTvShows: TvShow[] = [];
 
-  constructor(public tvShowService: TvShowsService, public store: Store, public router: Router) {}
+  constructor(
+    public tvShowService: TvShowsService,
+    public store: Store,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
     this.popularTvShowsSub = this.tvShowService.$popular.subscribe((res) => {
@@ -47,5 +51,13 @@ export class TvShowsComponent implements OnInit, OnDestroy {
   saveTvShows(tvShow: TvShow[], category: string) {
     this.store.dispatch(saveSelectedTvShows({ tvShows: tvShow }));
     this.router.navigate(['tvShows', category]);
+  }
+
+  goToTvShowPage(tvShow: TvShow) {
+    this.router.navigate(['tvShow'], {
+      queryParams: {
+        id: tvShow.id,
+      },
+    });
   }
 }

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectCategoryTvShows } from 'app-store';
 import { TvShow } from 'app-types';
@@ -14,7 +15,7 @@ export class TvCategoryComponent implements OnInit {
   tvShows: TvShow[] = [];
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
-  constructor(public store: Store) {}
+  constructor(public store: Store, public router: Router) {}
 
   ngOnInit(): void {
     this.storeSub = this.store
@@ -25,5 +26,13 @@ export class TvCategoryComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.storeSub.unsubscribe();
+  }
+
+  goToTvShowPage(tvShow: TvShow) {
+    this.router.navigate(['tvShow'], {
+      queryParams: {
+        id: tvShow.id,
+      },
+    });
   }
 }
