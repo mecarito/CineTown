@@ -32,9 +32,15 @@ export class MoviesService {
     return this.http
       .get<MovieQueryResponse>(`${this.discoverMovieUrl}`, {
         params: {
-          with_genres: genreId
+          with_genres: genreId,
         },
       })
+      .pipe(retry(1));
+  }
+
+  getMovie(movieId: string): Observable<Movie> {
+    return this.http
+      .get<Movie>(`${this.movieUrl}/${Number(movieId)}`)
       .pipe(retry(1));
   }
 }

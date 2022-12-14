@@ -14,7 +14,4 @@ export type Buttons = 'filled' | 'outline';
 
 export type Inputs = 'text' | 'password';
 
-export type Cards = 'movie' | 'tvShow';
-
-
-
+export type Cards = 'movie' | 'movieDetails' | 'tvShow' | 'tvShowDetails';

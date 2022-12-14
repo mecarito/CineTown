@@ -3,7 +3,10 @@
     <div class="flex flex-col space-y-5" *ngIf="popularMovies.length > 0">
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer" (click)="saveMovies(popularMovies, 'popular')">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveMovies(popularMovies, 'popular')"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
@@ -13,6 +16,7 @@
           variant="movie"
           [movie]="movie"
           *ngFor="let movie of popularMovies"
+          (movieClickEvent)="goToMoviePage($event)"
         ></app-card>
       </div>
     </div>
@@ -20,7 +24,10 @@
     <div class="flex flex-col space-y-5" *ngIf="topRatedMovies.length > 0">
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer" (click)="saveMovies(topRatedMovies, 'topRated')">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveMovies(topRatedMovies, 'topRated')"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
@@ -30,6 +37,7 @@
           variant="movie"
           [movie]="movie"
           *ngFor="let movie of topRatedMovies"
+          (movieClickEvent)="goToMoviePage($event)"
         ></app-card>
       </div>
     </div>
@@ -37,7 +45,10 @@
     <div class="flex flex-col space-y-5" *ngIf="upComingMovies.length > 0">
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Upcoming</h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer" (click)="saveMovies(upComingMovies, 'upComing')">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveMovies(upComingMovies, 'upComing')"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
@@ -47,6 +58,7 @@
           variant="movie"
           [movie]="movie"
           *ngFor="let movie of upComingMovies"
+          (movieClickEvent)="goToMoviePage($event)"
         ></app-card>
       </div>
     </div>
@@ -56,7 +68,10 @@
         <h1 class="text-white capitalize text-2xl font-semibold">
           Now playing
         </h1>
-        <div class="flex flex-row items-center space-x-1 cursor-pointer" (click)="saveMovies(nowPlayingMovies, 'nowPlaying')">
+        <div
+          class="flex flex-row items-center space-x-1 cursor-pointer"
+          (click)="saveMovies(nowPlayingMovies, 'nowPlaying')"
+        >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
@@ -66,6 +81,7 @@
           variant="movie"
           [movie]="movie"
           *ngFor="let movie of nowPlayingMovies"
+          (movieClickEvent)="goToMoviePage($event)"
         ></app-card>
       </div>
     </div>

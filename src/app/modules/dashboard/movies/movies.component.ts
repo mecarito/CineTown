@@ -58,4 +58,12 @@ export class MoviesComponent implements OnInit, OnDestroy {
     this.store.dispatch(saveSelectedMovies({ movies: movies }));
     this.router.navigate(['movies', category]);
   }
+
+  goToMoviePage(movie: Movie) {
+    this.router.navigate(['movie'], {
+      queryParams: {
+        id: movie.id,
+      },
+    });
+  }
 }

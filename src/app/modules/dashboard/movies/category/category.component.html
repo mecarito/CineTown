@@ -6,6 +6,7 @@
         variant="movie"
         [movie]="movie"
         *ngFor="let movie of movies"
+        (movieClickEvent)="goToMoviePage($event)"
       ></app-card>
     </div>
   </div>

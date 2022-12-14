@@ -12,6 +12,8 @@ import { CategoryComponent } from './movies/category/category.component';
 import { TvCategoryComponent } from './tv-shows/tv-category/tv-category.component';
 import { MovieGenreComponent } from './movies/movie-genre/movie-genre.component';
 import { TvGenreComponent } from './tv-shows/tv-genre/tv-genre.component';
+import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
+import { TvshowDetailsComponent } from './tv-shows/tvshow-details/tvshow-details.component';
 
 const routes: Routes = [
   {
@@ -23,9 +25,11 @@ const routes: Routes = [
       { path: 'movies', component: MoviesComponent },
       { path: 'movies/:category', component: CategoryComponent },
       { path: 'movies/genre/:genre', component: MovieGenreComponent },
+      { path: 'movie', component: MovieDetailsComponent },
       { path: 'tvShows', component: TvShowsComponent },
       { path: 'tvShows/:category', component: TvCategoryComponent },
       { path: 'tvShows/genre/:genre', component: TvGenreComponent },
+      { path: 'tvShow', component: TvshowDetailsComponent },
       { path: 'categories', component: CategoriesComponent },
     ],
   },
@@ -45,6 +49,8 @@ const routes: Routes = [
     TvCategoryComponent,
     MovieGenreComponent,
     TvGenreComponent,
+    MovieDetailsComponent,
+    TvshowDetailsComponent,
   ],
   providers: [],
 })

@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectCategoryMovies } from 'app-store';
 import { Movie } from 'app-types';
@@ -17,10 +18,10 @@ import { Subscription } from 'rxjs';
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   storeSub!: Subscription;
-  movies: Movie[]= []
+  movies: Movie[] = [];
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
-  constructor(public store: Store) {}
+  constructor(public store: Store, public router: Router) {}
 
   ngOnInit(): void {
     this.storeSub = this.store
@@ -31,5 +32,13 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.storeSub.unsubscribe();
+  }
+
+  goToMoviePage(movie: Movie) {
+    this.router.navigate(['movie'], {
+      queryParams: {
+        id: movie.id,
+      },
+    });
   }
 }

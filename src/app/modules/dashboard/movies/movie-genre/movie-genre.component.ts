@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from 'app-types';
 import { Subscription } from 'rxjs';
 import { MoviesService } from 'src/app/modules/shared/services/movies.service';
@@ -19,7 +19,8 @@ export class MovieGenreComponent implements OnInit {
 
   constructor(
     public route: ActivatedRoute,
-    public movieService: MoviesService
+    public movieService: MoviesService,
+    public router: Router
   ) {}
 
   ngOnInit(): void {
@@ -37,5 +38,13 @@ export class MovieGenreComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.movieSub.unsubscribe();
+  }
+
+  goToMoviePage(movie: Movie) {
+    this.router.navigate(['movie'], {
+      queryParams: {
+        id: movie.id,
+      },
+    });
   }
 }
