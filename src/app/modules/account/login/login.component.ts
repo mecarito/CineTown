@@ -17,10 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(public auth: AngularFireAuth, public router: Router) {}
 
-  ngOnInit(): void {
-    this.validEmail = true;
-    this.validPassword = true;
-  }
+  ngOnInit(): void {}
 
   onEmailChange(value: string) {
     if (!value) {

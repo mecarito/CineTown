@@ -26,7 +26,9 @@ export class InputComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.valid = true
+  }
 
   onTextChange(value: string) {
     this.textInputEvent.emit(value);
