@@ -21,6 +21,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
   topRatedMovies: Movie[] = [];
   upComingMovies: Movie[] = [];
   nowPlayingMovies: Movie[] = [];
+  searching = true;
 
   constructor(
     public movieService: MoviesService,
@@ -30,6 +31,9 @@ export class MoviesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.popularMoviesSub = this.movieService.$popular.subscribe((res) => {
+      if (res) {
+        this.searching = false;
+      }
       this.popularMovies = res.results.filter((movie) => movie.poster_path);
     });
     this.topRatedMoviesSub = this.movieService.$topRated.subscribe((res) => {

@@ -15,6 +15,7 @@ export class MovieGenreComponent implements OnInit {
   genreName!: string | null;
   genreId!: string | null;
   movies: Movie[] = [];
+  searching = true;
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(
@@ -30,6 +31,9 @@ export class MovieGenreComponent implements OnInit {
       this.movieSub = this.movieService
         .getGenreMovies(this.genreId)
         .subscribe((movies) => {
+          if (movies) {
+            this.searching = false;
+          }
           this.movies = movies.results;
         });
     }

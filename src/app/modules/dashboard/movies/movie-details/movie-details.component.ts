@@ -14,6 +14,7 @@ export class MovieDetailsComponent implements OnInit {
 
   movieId!: string | null;
   movie!: Movie;
+  searching = true
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(
@@ -27,6 +28,9 @@ export class MovieDetailsComponent implements OnInit {
       this.movieSub = this.movieService
         .getMovie(this.movieId)
         .subscribe((movie) => {
+          if (movie) {
+            this.searching = false
+          }
           this.movie = movie
         });
     }

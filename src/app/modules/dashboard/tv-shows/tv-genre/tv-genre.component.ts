@@ -21,6 +21,7 @@ export class TvGenreComponent implements OnInit, OnDestroy {
   genreName!: string | null;
   genreId!: string | null;
   tvShows: TvShow[] = [];
+  searching = true;
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(
@@ -36,6 +37,9 @@ export class TvGenreComponent implements OnInit, OnDestroy {
       this.tvShowSub = this.tvShowService
         .getGenreTvShows(this.genreId)
         .subscribe((tvShows) => {
+             if (tvShows) {
+               this.searching = false;
+             }
           this.tvShows = tvShows.results;
         });
     }

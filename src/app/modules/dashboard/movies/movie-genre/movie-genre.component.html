@@ -1,4 +1,5 @@
 <div #top>
+  <app-spinner *ngIf="searching"></app-spinner>
   <div class="flex flex-col space-y-5" *ngIf="movies.length > 0">
     <h1 class="text-white capitalize text-2xl font-semibold">
       {{ genreName }} Movies

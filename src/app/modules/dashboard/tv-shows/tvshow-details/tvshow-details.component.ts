@@ -14,6 +14,7 @@ export class TvshowDetailsComponent implements OnInit {
 
   tvShowId!: string | null;
   tvShow!: TvShow;
+  searching = true;
   @ViewChild('top') top!: ElementRef<HTMLDivElement>;
 
   constructor(
@@ -27,6 +28,9 @@ export class TvshowDetailsComponent implements OnInit {
       this.tvShowSub = this.tvShowService
         .getTvShow(this.tvShowId)
         .subscribe((tvShow) => {
+          if (tvShow) {
+            this.searching = false
+          }
           this.tvShow = tvShow;
         });
     }

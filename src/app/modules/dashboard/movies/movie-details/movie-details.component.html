@@ -1,7 +1,9 @@
-<div #top *ngIf="movie">
-  <h1 class="text-2xl text-white font-semibold">Details</h1>
-  <section class="mt-8 lg:w-3/4">
-    <app-card variant="movieDetails" [movie]="movie"></app-card>
-  </section>
+<div #top> 
+  <app-spinner *ngIf="searching"></app-spinner>
+  <div  *ngIf="movie">
+    <h1 class="text-2xl text-white font-semibold">Details</h1>
+    <section class="mt-8 lg:w-3/4">
+      <app-card variant="movieDetails" [movie]="movie"></app-card>
+    </section>
+  </div>
 </div>
-

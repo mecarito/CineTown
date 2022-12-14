@@ -15,11 +15,15 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 
   movieCategories!: Category[];
   tvShowCategories!: Category[];
+  searching = true
 
   constructor(public categories: CategoriesService, public router: Router) {}
 
   ngOnInit(): void {
     this.movieCategoriesSub = this.categories.$movies.subscribe((res) => {
+      if (res) {
+        this.searching = false
+      }
       this.movieCategories = res.genres;
     });
     this.tvShowCategoriesSub = this.categories.$tvShows.subscribe((res) => {
