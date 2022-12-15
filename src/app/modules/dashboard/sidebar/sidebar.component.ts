@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Icons } from 'app-types';
 
 interface Section {
@@ -36,7 +37,12 @@ export class SidebarComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  logout() {
+    this.router.navigate(['account', 'signin']);
+    localStorage.setItem('status', 'loggedOut');
+  }
 }

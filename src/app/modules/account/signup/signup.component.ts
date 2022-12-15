@@ -49,6 +49,7 @@ export class SignupComponent implements OnInit {
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then((response) => {
         if (response.operationType === 'signIn') {
+          localStorage.setItem('status', 'loggedIn');
           this.router.navigate(['browse']);
         }
       })
@@ -70,6 +71,7 @@ export class SignupComponent implements OnInit {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then((response) => {
           if (response.operationType === 'signIn') {
+            localStorage.setItem('status', 'loggedIn');
             this.router.navigate(['browse']);
           }
         })
