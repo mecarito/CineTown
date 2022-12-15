@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
+import { Router } from '@angular/router';
+import {
+  validateEmailandPassword,
+  validateEmail,
+  validatePassword,
+} from 'app-utils';
 
 @Component({
   selector: 'app-login',
@@ -19,31 +24,37 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onEmailChange(value: string) {
-    if (!value) {
-      this.validEmail = false;
-    } else {
+  async onEmailChange(email: string) {
+    const isValidEmail = await validateEmail(email);
+    if (isValidEmail) {
       this.validEmail = true;
-    }
-    this.email = value;
-  }
-
-  onPasswordChange(value: string) {
-    if (!value) {
-      this.validPassword = false;
+      this.email = email;
     } else {
-      this.validPassword = true;
+      this.validEmail = false;
     }
-    this.password = value;
   }
 
-  async loginWithGoogle() {
-    // const response = await this.auth.signInWithPopup(
-    //   new firebase.auth.GoogleAuthProvider()
-    // );
-    // if (response.operationType === 'signIn') {
-    //   this.router.navigate(['dashboard']);
-    // }
+  async onPasswordChange(password: string) {
+    const isValidPassword = await validatePassword(password);
+    if (isValidPassword) {
+      this.validPassword = true;
+      this.password = password;
+    } else {
+      this.validPassword = false;
+    }
+  }
+
+  loginWithGoogle() {
+    this.auth
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((response) => {
+        if (response.operationType === 'signIn') {
+          this.router.navigate(['browse']);
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
 
   async loginWithEmailAndPassword() {
@@ -53,16 +64,18 @@ export class LoginComponent implements OnInit {
     if (!this.password) {
       this.validPassword = false;
     }
-    if (this.email && this.password) {
-      console.log(this.email, this.password);
+    const isValid = await validateEmailandPassword(this.email, this.password);
+    if (isValid) {
+      this.auth
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then((response) => {
+          if (response.operationType === 'signIn') {
+            this.router.navigate(['browse']);
+          }
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     }
-
-    // const response = await this.auth.signInWithEmailAndPassword(
-    //   this.email.value as string,
-    //   this.password.value as string
-    // );
-    // if (response.operationType === 'signIn') {
-    //   this.router.navigate(['dashboard']);
-    // }
   }
 }

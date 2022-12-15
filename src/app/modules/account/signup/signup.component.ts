@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import {
+  validateEmailandPassword,
+  validateEmail,
+  validatePassword,
+} from 'app-utils';
 
 @Component({
   selector: 'app-signup',
@@ -18,35 +22,39 @@ export class SignupComponent implements OnInit {
 
   constructor(public auth: AngularFireAuth, public router: Router) {}
 
-  onEmailChange(value: string) {
-    // TODO: validation logic
-    if (!value) {
-      this.validEmail = false;
-    } else {
+  async onEmailChange(email: string) {
+    const isValidEmail = await validateEmail(email);
+    if (isValidEmail) {
       this.validEmail = true;
+      this.email = email;
+    } else {
+      this.validEmail = false;
     }
-    this.email = value;
   }
 
-  onPasswordChange(value: string) {
-    // TODO: validation logic
-    if (!value) {
-      this.validPassword = false;
-    } else {
+  async onPasswordChange(password: string) {
+    const isValidPassword = await validatePassword(password);
+    if (isValidPassword) {
       this.validPassword = true;
+      this.password = password;
+    } else {
+      this.validPassword = false;
     }
-    this.password = value;
   }
 
   ngOnInit(): void {}
 
-  async signUpWithGoogle() {
-    // const response = await this.auth.signInWithPopup(
-    //   new firebase.auth.GoogleAuthProvider()
-    // );
-    // if (response.operationType === 'signIn') {
-    //   this.router.navigate(['dashboard']);
-    // }
+  signUpWithGoogle() {
+    this.auth
+      .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      .then((response) => {
+        if (response.operationType === 'signIn') {
+          this.router.navigate(['browse']);
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
 
   async singUpWithEmailAndPassword() {
@@ -56,16 +64,18 @@ export class SignupComponent implements OnInit {
     if (!this.password) {
       this.validPassword = false;
     }
-    if (this.email && this.password) {
-      console.log(this.email, this.password);
+    const isValid = await validateEmailandPassword(this.email, this.password);
+    if (isValid) {
+      this.auth
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((response) => {
+          if (response.operationType === 'signIn') {
+            this.router.navigate(['browse']);
+          }
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
     }
-    // const response = await this.auth.createUserWithEmailAndPassword(
-    //   this.email.value as string,
-    //   this.password.value as string
-    // );
-
-    // if (response.operationType === 'signIn') {
-    //   this.router.navigate(['dashboard']);
-    // }
   }
 }

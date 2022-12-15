@@ -20,7 +20,8 @@
     "lib": ["es2020", "dom"],
     "paths": {
       "app-types": ["src/app/types/index"],
-      "app-store": ["src/app/modules/shared/store/index"]
+      "app-store": ["src/app/modules/shared/store/index"],
+      "app-utils": ["src/app/modules/shared/utils/index"]
     }
   },
   "angularCompilerOptions": {
