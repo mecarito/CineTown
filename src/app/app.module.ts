@@ -15,9 +15,10 @@ import { GlobalInterceptor } from './modules/shared/interceptors/global-intercep
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MoviesReducer, TvShowReducer } from './modules/shared/store/reducers';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
