@@ -8,7 +8,9 @@ export type Icons =
   | 'category'
   | 'logout'
   | 'rating'
-  | 'arrow-right';
+  | 'arrow-right'
+  | 'menu'
+  | 'close';
 
 export type Buttons = 'filled' | 'outline';
 

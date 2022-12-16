@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Icons } from 'app-types';
 
@@ -14,6 +14,7 @@ interface Section {
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  @Output() closeBtnEvent = new EventEmitter()
   sections: Section[] = [
     {
       title: 'Search',
@@ -44,5 +45,9 @@ export class SidebarComponent implements OnInit {
   logout() {
     localStorage.setItem('status', 'loggedOut');
     this.router.navigate(['account', 'signin']);
+  }
+
+  onClose() {
+    this.closeBtnEvent.emit()
   }
 }
