@@ -1,7 +1,9 @@
 <div #top>
   <app-spinner *ngIf="searching"></app-spinner>
   <div *ngIf="tvShow">
-    <h1 class="text-2xl text-white font-semibold">Details</h1>
+    <h1 class="text-2xl text-white font-semibold text-center md:text-start">
+      Details
+    </h1>
     <section class="mt-8 lg:w-3/4">
       <app-card variant="tvShowDetails" [tvShow]="tvShow"></app-card>
     </section>

@@ -1,6 +1,6 @@
 <div>
   <ng-container *ngIf="variant === 'movie'">
-    <div class=" w-movie-c-w h-movie-c-h">
+    <div class="w-movie-c-w h-movie-c-h">
       <div
         class="rounded-xl cursor-pointer w-full h-movie-i-h px-4 py-2"
         (click)="getMovie(movie)"
@@ -29,7 +29,9 @@
   </ng-container>
 
   <ng-container *ngIf="variant === 'movieDetails'">
-    <div class="w-full h-full flex flex-row items-start space-x-4">
+    <div
+      class="w-full h-full flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 space-x-4"
+    >
       <div>
         <div
           class="rounded-xl cursor-pointer w-movie-c-w h-movie-i-h px-4 py-2"
@@ -50,8 +52,10 @@
         </div>
       </div>
 
-      <div class="flex flex-col space-y-8 text-white">
-        <h1 class="text-4xl">{{ movie.original_title }}</h1>
+      <div
+        class="flex flex-col space-y-4 md:space-y-8 text-white text-center md:text-start"
+      >
+        <h1 class="text-2xl md:text-4xl">{{ movie.original_title }}</h1>
         <p class="text-lg text-gray-400">{{ movie.overview }}</p>
         <p class="text-base text-white font-semibold">
           Released:
@@ -93,7 +97,9 @@
   </ng-container>
 
   <ng-container *ngIf="variant === 'tvShowDetails'">
-    <div class="w-full h-full flex flex-row items-start space-x-4">
+    <div
+      class="w-full h-full flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 space-x-4"
+    >
       <div>
         <div
           class="rounded-xl cursor-pointer w-movie-c-w h-movie-i-h px-4 py-2"
@@ -114,8 +120,8 @@
         </div>
       </div>
 
-      <div class="flex flex-col space-y-8 text-white">
-        <h1 class="text-4xl">{{ tvShow.original_name }}</h1>
+      <div class="flex flex-col space-y-8 text-white text-center md:text-start">
+        <h1 class="text-2xl md:text-4xl">{{ tvShow.original_name }}</h1>
         <p class="text-lg text-gray-400">{{ tvShow.overview }}</p>
         <p class="text-base text-white font-semibold">
           Released:

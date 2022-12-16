@@ -5,14 +5,14 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Popular</h1>
         <div
-          class="flex flex-row items-center space-x-1 cursor-pointer"
+          class="hidden md:flex flex-row items-center space-x-1 cursor-pointer"
           (click)="saveTvShows(popularTvShows, 'popular')"
         >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
       </div>
-      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+      <div class="flex flex-row items-center space-x-6 md:overflow-hidden overflow-x-scroll">
         <app-card
           variant="tvShow"
           [tvShow]="tvShow"
@@ -26,14 +26,14 @@
       <div class="flex flex-row items-center justify-between">
         <h1 class="text-white capitalize text-2xl font-semibold">Top rated</h1>
         <div
-          class="flex flex-row items-center space-x-1 cursor-pointer"
+          class="hidden md:flex flex-row items-center space-x-1 cursor-pointer"
           (click)="saveTvShows(topRatedTvShows, 'topRated')"
         >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
       </div>
-      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+      <div class="flex flex-row items-center space-x-6 md:overflow-hidden overflow-x-scroll">
         <app-card
           variant="tvShow"
           [tvShow]="tvShow"
@@ -49,14 +49,14 @@
           Now playing
         </h1>
         <div
-          class="flex flex-row items-center space-x-1 cursor-pointer"
+          class="hidden md:flex flex-row items-center space-x-1 cursor-pointer"
           (click)="saveTvShows(nowPlayingTvShows, 'nowPlaying')"
         >
           <p class="text-gray-400 text-lg">See all</p>
           <app-icon variant="arrow-right"></app-icon>
         </div>
       </div>
-      <div class="flex flex-row items-center space-x-6 overflow-hidden">
+      <div class="flex flex-row items-center space-x-6 md:overflow-hidden overflow-x-scroll">
         <app-card
           variant="tvShow"
           [tvShow]="tvShow"
