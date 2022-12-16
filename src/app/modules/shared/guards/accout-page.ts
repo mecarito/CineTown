@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class CanActivateDashboard implements CanActivate {
-  constructor() {}
+export class CanActivateAccount implements CanActivate {
+  constructor(private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,6 +21,9 @@ export class CanActivateDashboard implements CanActivate {
     | boolean
     | UrlTree {
     const status = localStorage.getItem('status');
-    return status === "loggedIn" ? true : false;
+    if (status === 'loggedIn') {
+      return this.router.parseUrl('browse');
+    }
+    return true;
   }
 }

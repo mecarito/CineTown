@@ -42,7 +42,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {}
 
   logout() {
-    this.router.navigate(['account', 'signin']);
     localStorage.setItem('status', 'loggedOut');
+    this.router.navigate(['account', 'signin']);
   }
 }

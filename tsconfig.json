@@ -21,7 +21,8 @@
     "paths": {
       "app-types": ["src/app/types/index"],
       "app-store": ["src/app/modules/shared/store/index"],
-      "app-utils": ["src/app/modules/shared/utils/index"]
+      "app-utils": ["src/app/modules/shared/utils/index"],
+      "app-guards": ["src/app/modules/shared/guards/index"]
     }
   },
   "angularCompilerOptions": {

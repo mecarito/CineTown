@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CanActivateDashboard } from './modules/shared/guards/dashboard';
+import { CanActivateAccount, CanActivateDashboard } from 'app-guards';
 
 const routes: Routes = [
   { path: '', redirectTo: 'account', pathMatch: 'full' },
@@ -8,6 +8,7 @@ const routes: Routes = [
     path: 'account',
     loadChildren: () =>
       import('./modules/account/account.module').then((m) => m.AccountModule),
+    canActivate: [CanActivateAccount],
   },
   {
     path: 'browse',
@@ -22,6 +23,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [CanActivateDashboard]
+  providers: [CanActivateDashboard, CanActivateAccount],
 })
 export class AppRoutingModule {}
