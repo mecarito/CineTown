@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CanActivateAccount, CanActivateDashboard } from 'app-guards';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'account', pathMatch: 'full' },
@@ -19,7 +18,6 @@ const routes: Routes = [
       ),
     canActivate: [CanActivateDashboard],
   },
-  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

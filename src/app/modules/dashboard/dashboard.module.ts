@@ -14,6 +14,7 @@ import { MovieGenreComponent } from './movies/movie-genre/movie-genre.component'
 import { TvGenreComponent } from './tv-shows/tv-genre/tv-genre.component';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { TvshowDetailsComponent } from './tv-shows/tvshow-details/tvshow-details.component';
+import { PageNotFoundComponent } from 'src/app/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'categories', component: CategoriesComponent },
     ],
   },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
